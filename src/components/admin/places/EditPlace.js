@@ -249,7 +249,7 @@ const EditPlace = ({ place, onSave, onCancel, onDelete }) => {
 
     try {
       setIsUploading(prev => ({ ...prev, [index]: true }));
-              const response = await axios.post(`${process.env.REACT_APP_API_URL || 'http://localhost:3030'}/uploadFile?mediaType=places`, formData, {
+              const response = await axios.post(`${process.env.REACT_APP_API_URL}/uploadFile?mediaType=places`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }

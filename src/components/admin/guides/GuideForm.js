@@ -116,7 +116,7 @@ const GuideForm = ({ guide, onSuccess, onCancel }) => {
 
     try {
       setIsUploading(true);
-      const response = await axios.post('http://localhost:3030/uploadFile?mediaType=FeaturedGuides', formData, {
+      const response = await axios.post(`${process.env.REACT_APP_API_URL}/uploadFile?mediaType=FeaturedGuides`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
@@ -182,7 +182,7 @@ const GuideForm = ({ guide, onSuccess, onCancel }) => {
 
     try {
       setIsSearching(true);
-      const response = await axios.get(`http://localhost:3030/schedule/places/search?searchPlaceName=${encodeURIComponent(searchText)}`);
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/schedule/places/search?searchPlaceName=${encodeURIComponent(searchText)}`);
       
       if (response.data.status && response.data.data) {
         setSearchResults(response.data.data);
@@ -254,8 +254,8 @@ const GuideForm = ({ guide, onSuccess, onCancel }) => {
       }
 
       const endpoint = guide 
-        ? `http://localhost:3030/featured-guides/user/edit/${guide.id}`
-        : 'http://localhost:3030/featured-guides/user/add';
+        ? `${process.env.REACT_APP_API_URL}/featured-guides/user/edit/${guide.id}`
+        : `${process.env.REACT_APP_API_URL}/featured-guides/user/add`;
       
       const method = guide ? 'PUT' : 'POST';
       

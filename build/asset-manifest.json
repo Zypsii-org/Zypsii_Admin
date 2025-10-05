@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/static/css/main.98c36995.css",
+    "main.js": "/static/js/main.1c29e29b.js",
+    "static/js/453.fbb72606.chunk.js": "/static/js/453.fbb72606.chunk.js",
+    "static/media/travel.mp4": "/static/media/travel.de774dea3c320f21d3d2.mp4",
+    "static/media/about2.jpg": "/static/media/about2.28d72b257876a168bf74.jpg",
+    "static/media/Screenshot__74_-removebg-preview.png": "/static/media/Screenshot__74_-removebg-preview.bc8b86848a37bc495a0f.png",
+    "static/media/Screenshot__69_-removebg-preview.png": "/static/media/Screenshot__69_-removebg-preview.e75da1c9889f358d0e37.png",
+    "static/media/Screenshot__67_-removebg-preview.png": "/static/media/Screenshot__67_-removebg-preview.6a1d9ec2cac4bae0faeb.png",
+    "static/media/Screenshot__73_-removebg-preview.png": "/static/media/Screenshot__73_-removebg-preview.422c0b36df5fafcc8fa3.png",
+    "static/media/Screenshot__72_-removebg-preview.png": "/static/media/Screenshot__72_-removebg-preview.7599814cefcaa31bc9e4.png",
+    "static/media/about.png": "/static/media/about.a7e3666a293b6eef4917.png",
+    "static/media/Screenshot__70_-removebg-preview.png": "/static/media/Screenshot__70_-removebg-preview.94961cf591902222da36.png",
+    "static/media/Screenshot__71_-removebg-preview.png": "/static/media/Screenshot__71_-removebg-preview.957bc40703d8a8c84bfa.png",
+    "static/media/app-ss1.png": "/static/media/app-ss1.1635d6d448a61efe3286.png",
+    "static/media/logo.png": "/static/media/logo.613e4af51079af25fa87.png",
+    "static/media/mobile-icon.png": "/static/media/mobile-icon.7e555b688bb31ca52b28.png",
+    "index.html": "/index.html",
+    "main.98c36995.css.map": "/static/css/main.98c36995.css.map",
+    "main.1c29e29b.js.map": "/static/js/main.1c29e29b.js.map",
+    "453.fbb72606.chunk.js.map": "/static/js/453.fbb72606.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.98c36995.css",
+    "static/js/main.1c29e29b.js"
+  ]
+}

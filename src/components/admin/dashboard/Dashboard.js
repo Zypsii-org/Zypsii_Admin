@@ -33,7 +33,7 @@ const Dashboard = () => {
         throw new Error('Authentication required');
       }
 
-      const response = await axios.get(`http://localhost:3030/dashboard-count/total-counts/${countType}`, {
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/dashboard-count/total-counts/${countType}`, {
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json'

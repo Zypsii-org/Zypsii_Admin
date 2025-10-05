@@ -47,7 +47,7 @@ const Guides = () => {
         throw new Error('Authentication required');
       }
 
-      const response = await axios.get(`http://localhost:3030/featured-guides/user/listing?page=${page}&limit=10`, {
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/featured-guides/user/listing?page=${page}&limit=10`, {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -175,7 +175,7 @@ const Guides = () => {
         throw new Error('Authentication required');
       }
 
-      const response = await axios.delete(`http://localhost:3030/featured-guides/user/delete/${guideToDelete.id}`, {
+      const response = await axios.delete(`${process.env.REACT_APP_API_URL}/featured-guides/user/delete/${guideToDelete.id}`, {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -250,7 +250,7 @@ const Guides = () => {
         throw new Error('Authentication required');
       }
 
-      const response = await axios.put(`http://localhost:3030/featured-guides/user/activate-inactive/${guideToToggle.id}`, {}, {
+      const response = await axios.put(`${process.env.REACT_APP_API_URL}/featured-guides/user/activate-inactive/${guideToToggle.id}`, {}, {
         headers: {
           'Authorization': `Bearer ${token}`
         }

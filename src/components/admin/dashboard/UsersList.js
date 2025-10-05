@@ -51,7 +51,7 @@ const UsersList = () => {
         ...(filters.deleted !== undefined && { deleted: filters.deleted.toString() })
       });
 
-      const response = await axios.get(`http://localhost:3030/dashboard-users/listing?${params}`, {
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/dashboard-users/listing?${params}`, {
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json'

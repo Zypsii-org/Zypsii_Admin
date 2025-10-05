@@ -73,7 +73,7 @@ const YouTube = () => {
   useEffect(() => {
     if (isAuthenticated && !authLoading) {
       console.log('🔐 User authenticated, fetching videos...');
-      console.log('🌐 API Base URL:', process.env.REACT_APP_API_URL || 'http://localhost:3030');
+      console.log('🌐 API Base URL:', process.env.REACT_APP_API_URL);
       fetchVideos();
     }
     
@@ -627,7 +627,7 @@ const YouTube = () => {
 
     try {
       setIsSearching(true);
-      const response = await axios.get(`http://localhost:3030/schedule/places/search?searchPlaceName=${encodeURIComponent(searchText)}`);
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/schedule/places/search?searchPlaceName=${encodeURIComponent(searchText)}`);
       
       if (response.data.status && response.data.data) {
         setSearchResults(response.data.data);
