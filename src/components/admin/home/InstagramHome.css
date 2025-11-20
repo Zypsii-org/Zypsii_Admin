@@ -1,0 +1,530 @@
+.instagram-home-container {
+  display: flex;
+  min-height: 100vh;
+  background-color: #fafafa;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+.instagram-home-container.sidebar-open {
+  overflow: hidden;
+}
+
+.instagram-home-container.mobile-stack {
+  flex-direction: column;
+}
+
+.sidebar-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 900;
+}
+
+/* Left Sidebar */
+.instagram-sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 244px;
+  height: 100vh;
+  background-color: #ffffff;
+  border-right: 1px solid #dbdbdb;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 12px;
+  box-sizing: border-box;
+  z-index: 1000;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.instagram-sidebar.mobile-hidden {
+  transform: translateX(-105%);
+  box-shadow: none;
+}
+
+.instagram-sidebar.mobile-visible {
+  transform: translateX(0);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+}
+
+.sidebar-header {
+  padding: 12px 0 20px 0;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #dbdbdb;
+  display: flex;
+  align-items: center;
+  gap: 0px;
+}
+
+.sidebar-logo {
+  height: 40px;
+  width: auto;
+  margin: 0;
+  padding-left: 12px;
+  object-fit: contain;
+  display: block;
+}
+
+.sidebar-logo-text {
+  font-size: 24px;
+  font-weight: 700;
+  color: #262626;
+  margin: 0;
+  background: linear-gradient(135deg, #ff3873 0%, #e62864 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.5px;
+}
+
+.sidebar-nav {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.sidebar-nav-item {
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  color: #262626;
+  font-size: 16px;
+  font-weight: 500;
+  text-align: left;
+  width: 100%;
+  gap: 16px;
+  border-left: 3px solid transparent;
+  margin-left: 0;
+}
+
+.sidebar-nav-item:hover {
+  background-color: rgba(255, 56, 115, 0.08);
+  color: #ff3873;
+}
+
+.sidebar-nav-item:hover .nav-icon {
+  color: #ff3873;
+}
+
+.sidebar-nav-item.active {
+  background-color: rgba(255, 56, 115, 0.12);
+  color: #ff3873;
+  font-weight: 600;
+  border-left: 3px solid #ff3873;
+}
+
+.sidebar-nav-item.active .nav-icon {
+  color: #ff3873;
+}
+
+.nav-icon {
+  font-size: 24px;
+  color: #262626;
+  transition: color 0.2s ease;
+}
+
+.nav-text {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.sidebar-footer {
+  margin-top: auto;
+  padding-top: 20px;
+  border-top: 1px solid #dbdbdb;
+}
+
+.sidebar-logout-btn {
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  color: #ed4956;
+  font-size: 16px;
+  font-weight: 500;
+  text-align: left;
+  width: 100%;
+  gap: 16px;
+}
+
+.sidebar-logout-btn:hover {
+  background-color: #fff5f5;
+}
+
+.sidebar-logout-btn .nav-icon {
+  color: #ed4956;
+}
+
+/* Main Content Area */
+.instagram-main-content {
+  margin-left: 244px;
+  flex: 1;
+  width: calc(100% - 244px);
+  min-height: 100vh;
+  background-color: #fafafa;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Global Search Section */
+.instagram-search-section {
+  width: 100%;
+  background-color: #ffffff;
+  border-bottom: 1px solid #dbdbdb;
+  padding: 6px 16px; /* even tighter to reduce gap below stories */
+  position: sticky;
+  top: 0;
+  z-index: 9;
+  will-change: auto;
+  transform: translateZ(0);
+}
+
+.search-header-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  max-width: 100%;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.sidebar-toggle-btn {
+  border: none;
+  background: rgba(255, 56, 115, 0.12);
+  color: #ff3873;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(255, 56, 115, 0.18);
+}
+
+.sidebar-toggle-btn:active {
+  transform: scale(0.96);
+}
+
+.page-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #262626;
+  margin: 0;
+  white-space: nowrap;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center; /* vertically center text against inputs */
+}
+
+.search-input-container {
+  width: 420px; /* fixed width next to title */
+  max-width: 50vw;
+  margin: 0; /* do not center */
+  flex: 1;
+  min-width: 0;
+}
+
+.search-input-container .modern-search-wrapper {
+  margin-bottom: 0;
+  width: 100%;
+}
+
+/* Prevent the common search from centering inside header */
+.search-input-container .modern-search-container {
+  margin: 0;
+  height: 36px; /* unify (slightly shorter) control height */
+}
+
+/* Ensure search input height aligns with header controls */
+.search-input-container .modern-search-input {
+  height: 36px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+
+/* Center search icons vertically inside the input */
+.search-input-container .modern-search-icon {
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 16px;
+}
+
+.add-schedule-header-btn {
+  padding: 0 16px;
+  background: linear-gradient(135deg, #ff3873 0%, #e62864 100%);
+  color: white;
+  border: none;
+  border-radius: 18px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  flex-shrink: 0;
+  height: 36px; /* match search input height */
+  display: flex;
+  align-items: center; /* vertical center */
+  box-shadow: 0 2px 8px rgba(255, 56, 115, 0.2);
+}
+
+.search-action-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  margin-top: 8px;
+}
+
+.search-action-row .search-input-container {
+  width: 100%;
+  max-width: none;
+}
+
+.header-top-row {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.header-profile-btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.header-profile-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(255, 56, 115, 0.1) 0%, rgba(230, 40, 100, 0.1) 100%);
+  border: 2px solid rgba(255, 56, 115, 0.2);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ff3873;
+  font-size: 1.1rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.header-profile-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.header-profile-btn:hover .header-profile-avatar {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(255, 56, 115, 0.2);
+}
+
+/* Reduce gap above search results inside Instagram layout */
+.instagram-main-content .search-results-container {
+  margin-top: 1rem;
+}
+
+/* Instagram-like heading style */
+.instagram-main-content .page-title,
+.instagram-main-content .search-results-header h3 {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+
+.add-schedule-header-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(255, 56, 115, 0.35);
+  opacity: 0.95;
+  background: linear-gradient(135deg, #e62864 0%, #dc235a 100%);
+}
+
+.add-schedule-header-btn:active {
+  transform: translateY(0);
+}
+
+/* Content Section */
+.instagram-content-section {
+  flex: 1;
+  position: relative;
+  contain: layout style paint;
+  min-height: 0;
+  height: calc(100vh - 96px);
+  overflow-y: auto;
+}
+
+.instagram-content-section.with-sidebar {
+  display: flex;
+  gap: 24px;
+  overflow: visible;
+  overflow-y: visible;
+}
+
+.instagram-primary-content {
+  flex: 1;
+  min-width: 0;
+  width: 100%;
+}
+
+.instagram-content-section.with-sidebar .instagram-primary-content {
+  overflow-y: auto;
+  padding-right: 8px;
+  height: 100%;
+}
+
+.instagram-secondary-content {
+  width: 320px;
+  flex-shrink: 0;
+  height: 100%;
+  position: sticky;
+  top: 0;
+  align-self: flex-start;
+  overflow: hidden;
+  display: flex;
+}
+
+/* Prevent layout shifts */
+.instagram-content-section > * {
+  will-change: auto;
+}
+
+/* Ensure sections don't have extra padding */
+.instagram-content-section .search-section,
+.instagram-content-section .places-section,
+.instagram-content-section .schedule-section {
+  padding: 0;
+  min-height: 100%;
+}
+
+/* Section Transition */
+.section-content {
+  animation: fadeIn 0.2s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .instagram-main-content {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .instagram-content-section.with-sidebar {
+    flex-direction: column;
+  }
+
+  .instagram-secondary-content {
+    width: 100%;
+    position: static;
+    height: auto;
+    margin-top: 16px;
+  }
+}
+
+@media (max-width: 900px) {
+  .instagram-home-container {
+    flex-direction: column;
+  }
+
+  .search-action-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .search-input-container {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .add-schedule-header-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .header-profile-avatar {
+    width: 40px;
+    height: 40px;
+  }
+
+  .instagram-content-section {
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .instagram-main-content .search-section,
+  .instagram-main-content .places-section,
+  .instagram-main-content .schedule-section {
+    padding: 16px 12px;
+  }
+
+  .instagram-main-content .container {
+    padding: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .page-title {
+    font-size: 1.1rem;
+  }
+
+  .sidebar-toggle-btn {
+    width: 36px;
+    height: 36px;
+  }
+
+  .header-profile-btn {
+    justify-content: flex-end;
+  }
+
+  .search-action-row {
+    gap: 8px;
+  }
+}
+
+/* Ensure sections fit properly */
+.instagram-main-content .search-section,
+.instagram-main-content .places-section,
+.instagram-main-content .schedule-section {
+  padding: 20px;
+  max-width: 100%;
+}
+
+/* Override container styles for sections */
+.instagram-main-content .container {
+  max-width: 100%;
+  padding: 0 20px;
+}
+

@@ -1,0 +1,329 @@
+.google-login-wrapper {
+  display: inline-block;
+}
+
+.google-login-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+/* Primary variant (for homepage/navbar) */
+.google-login-btn.primary {
+  background: white;
+  color: #333;
+  border: 2px solid #e1e5e9;
+}
+
+.google-login-btn.primary:hover:not(:disabled) {
+  border-color: #4285F4;
+  box-shadow: 0 4px 12px rgba(66, 133, 244, 0.2);
+  transform: translateY(-2px);
+}
+
+/* Footer variant (lighter) */
+.google-login-btn.footer {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+.google-login-btn.footer:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: #4285F4;
+  box-shadow: 0 4px 12px rgba(66, 133, 244, 0.3);
+  transform: translateY(-2px);
+}
+
+.google-login-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.google-icon {
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .google-login-btn {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+  }
+
+  .google-icon {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .google-login-btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+    gap: 0.5rem;
+  }
+
+  .google-icon {
+    font-size: 1rem;
+  }
+}
+
+/* User Profile Styling */
+.user-profile-wrapper {
+  position: relative;
+  display: inline-block;
+  z-index: 999999 !important;
+}
+
+.user-profile-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.user-profile-btn.primary {
+  background: white;
+  color: #333;
+  border: 2px solid #e1e5e9;
+}
+
+.user-profile-btn.primary:hover {
+  border-color: #4285F4;
+  box-shadow: 0 2px 8px rgba(66, 133, 244, 0.2);
+}
+
+.user-profile-btn.footer {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+.user-profile-btn.footer:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.user-profile-img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.user-profile-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+}
+
+.user-profile-btn.primary .user-profile-avatar {
+  background: #f0f0f0;
+  color: #333;
+}
+
+.user-profile-btn.footer .user-profile-avatar {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+.user-name {
+  max-width: 120px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Popover Styling */
+.dropdown-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 99998 !important;
+  background: rgba(0, 0, 0, 0.5);
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.user-popover {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 0.5rem;
+  min-width: 300px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+  z-index: 99999 !important;
+  overflow: hidden;
+  animation: popoverSlideIn 0.3s ease;
+}
+
+@keyframes popoverSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.popover-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.popover-user-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex: 1;
+}
+
+.popover-profile-img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+}
+
+.popover-profile-avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+}
+
+.popover-user-name {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.popover-user-email {
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
+
+.popover-close-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 2rem;
+  font-weight: 300;
+  cursor: pointer;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background 0.2s ease;
+}
+
+.popover-close-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.popover-divider {
+  height: 1px;
+  background: #e1e5e9;
+  margin: 0;
+}
+
+.popover-logout-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  padding: 1.25rem 1.5rem;
+  border: none;
+  background: none;
+  color: #e74c3c;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.popover-logout-btn:hover {
+  background: #fee;
+}
+
+.popover-logout-btn svg {
+  font-size: 1.2rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .user-dropdown {
+    min-width: 240px;
+  }
+
+  .user-name {
+    max-width: 80px;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .user-dropdown {
+    min-width: 200px;
+    right: -10px;
+  }
+
+  .user-name {
+    display: none;
+  }
+
+  .user-profile-btn {
+    padding: 0.5rem;
+    gap: 0.5rem;
+  }
+}

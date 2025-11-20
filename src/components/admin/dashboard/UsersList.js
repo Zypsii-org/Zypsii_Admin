@@ -123,13 +123,20 @@ const UsersList = () => {
     return { text: 'Active', color: '#10b981', bg: '#ecfdf5' };
   };
 
-  // Get profile picture or fallback
-  const getProfilePicture = (user) => {
-    if (user.profilePicture) {
-      return user.profilePicture;
+  // Get profile picture URL or fallback
+  const getProfilePicture = (user) => (user.profilePicture ? user.profilePicture : null);
+
+  const handleAvatarError = useCallback((event) => {
+    const img = event?.target;
+    if (!img) {
+      return;
     }
-    return null;
-  };
+    img.style.display = 'none';
+    const fallback = img.nextElementSibling;
+    if (fallback && fallback.style) {
+      fallback.style.display = 'flex';
+    }
+  }, []);
 
   if (error) {
     return (
@@ -212,14 +219,16 @@ const UsersList = () => {
               >
                 <div className="user-avatar">
                   {getProfilePicture(user) ? (
-                    <img 
-                      src={getProfilePicture(user)} 
-                      alt={user.fullName}
-                      onError={(e) => {
-                        e.target.style.display = 'none';
-                        e.target.nextSibling.style.display = 'flex';
-                      }}
-                    />
+                    <>
+                      <img 
+                        src={getProfilePicture(user)} 
+                        alt={user.fullName}
+                        onError={handleAvatarError}
+                      />
+                      <span className="user-avatar-fallback" aria-hidden="true" style={{ display: 'none' }}>
+                        <FaUser />
+                      </span>
+                    </>
                   ) : (
                     <FaUser />
                   )}

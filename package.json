@@ -11,6 +11,7 @@
     "axios": "^1.11.0",
     "bootstrap": "^5.3.3",
     "framer-motion": "^12.4.10",
+    "leaflet": "^1.9.4",
     "moment": "^2.30.1",
     "react": "^19.0.0",
     "react-bootstrap": "^2.10.9",
@@ -21,6 +22,7 @@
     "react-scripts": "5.0.1",
     "react-typed": "^2.0.12",
     "recharts": "^2.15.4",
+    "socket.io-client": "^4.8.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

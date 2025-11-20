@@ -9,6 +9,7 @@ import Pagination from './Pagination';
 import NoResultsSection from './NoResultsSection';
 import EditPlace from './EditPlace';
 import DeleteConfirmModal from './DeleteConfirmModal';
+import { COUNTRIES } from '../../../constants/countries';
 import './places.css';
 
 const Places = () => {
@@ -1039,14 +1040,6 @@ const Places = () => {
 
     return (
       <>
-
-        {/* Authentication Error Alert */}
-        {authError && (
-          <div className="alert alert-auth-error">
-            <p>{authError}</p>
-          </div>
-        )}
-
         {/* Filters Section */}
         <FiltersSection
           filters={memoizedFilters}
@@ -1141,19 +1134,6 @@ const Places = () => {
             <FaTimes /> Back to List
           </button>
         </div>
-
-        {/* Alert Messages */}
-        {error && (
-          <div className="alert alert-error">
-            <p>{error}</p>
-          </div>
-        )}
-
-        {success && (
-          <div className="alert alert-success">
-            <p>{successMessage}</p>
-          </div>
-        )}
 
         <form onSubmit={handleSubmit} className="place-form">
           {/* Basic Information */}
@@ -1284,6 +1264,31 @@ const Places = () => {
                   placeholder="Enter state name"
                   required
                 />
+              </div>
+
+              <div className="form-field">
+                <label>Country *</label>
+                <select
+                  name="location.country"
+                  value={formData.location.country}
+                  onChange={handleChange}
+                  required
+                >
+                  <option value="" disabled>
+                    Select country
+                  </option>
+                  {formData.location.country &&
+                    !COUNTRIES.includes(formData.location.country) && (
+                      <option value={formData.location.country}>
+                        {formData.location.country}
+                      </option>
+                    )}
+                  {COUNTRIES.map((country) => (
+                    <option key={country} value={country}>
+                      {country}
+                    </option>
+                  ))}
+                </select>
               </div>
             </div>
           </div>
@@ -1685,6 +1690,27 @@ const Places = () => {
           </button>
         )}
       </div>
+
+      {/* Success Message - Shown at top level for all views */}
+      {success && successMessage && (
+        <div className="alert alert-success">
+          <p>{successMessage}</p>
+        </div>
+      )}
+
+      {/* Error Message - Shown at top level for all views */}
+      {error && (
+        <div className="alert alert-error">
+          <p>{error}</p>
+        </div>
+      )}
+
+      {/* Authentication Error Alert */}
+      {authError && (
+        <div className="alert alert-auth-error">
+          <p>{authError}</p>
+        </div>
+      )}
 
       {/* Content */}
       {activeView === 'list' ? renderPlacesList() : 

@@ -1,7 +1,7 @@
-import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { AuthProvider } from "./context/AuthContext";
-import { ProtectedRoute, Login, AdminLayout, Dashboard } from "./components/admin";
+import React, { useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route, useNavigate } from "react-router-dom";
+import { AuthProvider, useAuth } from "./context/AuthContext";
+import { ProtectedRoute, Login, AdminLayout, Dashboard, InstagramHome } from "./components/admin";
 
 import { Places, Guides, YouTube } from "./components/admin";
 
@@ -17,9 +17,20 @@ import FeaturesSections from "./components/section/FeaturesSection";
 import ScrollAnimationSection from "./components/condent/ScrollAnimationSection";
 import AboutSection from "./components/about/about";
 import Countdown from "./components/countdown/Countdown";
+import StatePlacesPage from "./components/homepage/StatePlacesPage";
+import CountryStatesPage from "./components/homepage/CountryStatesPage";
 
 // Main Website Component
 const MainWebsite = () => {
+  const navigate = useNavigate();
+  const { isAuthenticated, loading } = useAuth();
+
+  useEffect(() => {
+    if (!loading && isAuthenticated) {
+      navigate("/home", { replace: true });
+    }
+  }, [isAuthenticated, loading, navigate]);
+
   return (
     <div className="App">
       {/* <Countdown /> */}
@@ -43,6 +54,11 @@ const App = () => {
         <Routes>
           {/* Main Website Route */}
           <Route path="/" element={<MainWebsite />} />
+          
+          {/* User Home Route */}
+          <Route path="/home" element={<InstagramHome />} />
+          <Route path="/home/country/:country" element={<CountryStatesPage />} />
+          <Route path="/home/state/:country/:state" element={<StatePlacesPage />} />
           
           {/* Admin Routes */}
           <Route path="/admin/login" element={<Login />} />

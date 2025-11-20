@@ -1,0 +1,360 @@
+.schedule-section {
+  padding: 4rem 0;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  min-height: 100vh;
+}
+
+.schedule-search-container {
+  margin: 2rem auto;
+  max-width: 600px;
+}
+
+.schedule-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding: 2rem;
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  border-radius: 24px;
+  box-shadow: 0 10px 40px rgba(15, 23, 42, 0.08), 0 0 0 1px rgba(15, 23, 42, 0.05);
+}
+
+.schedule-header > div {
+  flex: 1;
+}
+
+.schedule-header h2 {
+  font-size: 2.75rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #0f172a 0%, #475569 50%, #64748b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.03em;
+}
+
+.schedule-header p {
+  font-size: 1.25rem;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.schedule-add-btn {
+  padding: 0.875rem 2.25rem;
+  background: linear-gradient(135deg, #ff3873 0%, #e62864 100%);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 6px 20px rgba(255, 56, 115, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.schedule-add-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.schedule-add-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(255, 56, 115, 0.4);
+  background: linear-gradient(135deg, #e62864 0%, #dc235a 100%);
+}
+
+.schedule-add-btn:hover::before {
+  opacity: 1;
+}
+
+/* Login Prompt */
+.schedule-login-prompt {
+  text-align: center;
+  padding: 6rem 2rem;
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 50%, #e62864 100%);
+  border-radius: 28px;
+  color: white;
+  box-shadow: 0 20px 60px rgba(245, 87, 108, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.schedule-login-prompt::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 30% 50%, rgba(255, 255, 255, 0.15), transparent 50%);
+  pointer-events: none;
+}
+
+.prompt-icon {
+  font-size: 5.5rem;
+  margin-bottom: 1.5rem;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.2));
+  position: relative;
+  z-index: 1;
+}
+
+.schedule-login-prompt h2 {
+  font-size: 2.25rem;
+  margin-bottom: 1rem;
+  color: white;
+  font-weight: 800;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  position: relative;
+  z-index: 1;
+}
+
+.schedule-login-prompt p {
+  font-size: 1.25rem;
+  margin-bottom: 2.5rem;
+  opacity: 0.95;
+  font-weight: 500;
+  position: relative;
+  z-index: 1;
+}
+
+.login-prompt-btn {
+  padding: 1rem 3rem;
+  background: white;
+  color: #f5576c;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.login-prompt-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Schedule Grid */
+.schedule-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+.schedule-card {
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  border-radius: 20px;
+  overflow: hidden;
+  border: 2px solid rgba(226, 232, 240, 0.8);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.05);
+  position: relative;
+}
+
+.schedule-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  padding: 2px;
+  background: linear-gradient(135deg, rgba(255, 56, 115, 0.3), rgba(230, 40, 100, 0.3));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+}
+
+.schedule-card:hover {
+  border-color: rgba(255, 56, 115, 0.5);
+  box-shadow: 0 16px 48px rgba(255, 56, 115, 0.25), 0 0 0 1px rgba(255, 56, 115, 0.1);
+  transform: translateY(-8px) scale(1.02);
+}
+
+.schedule-card:hover::before {
+  opacity: 1;
+}
+
+.schedule-card-image {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  background: #f0f0f0;
+}
+
+.schedule-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.schedule-card-content-wrapper {
+  padding: 1.5rem;
+}
+
+.schedule-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+  gap: 1rem;
+}
+
+.schedule-card-header h3 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #0f172a 0%, #475569 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0;
+  flex: 1;
+  line-height: 1.3;
+  transition: all 0.3s ease;
+}
+
+.schedule-card:hover .schedule-card-header h3 {
+  background: linear-gradient(135deg, #ff3873 0%, #e62864 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.schedule-status {
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  white-space: nowrap;
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+.schedule-status.public {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: white;
+}
+
+.schedule-status.private {
+  background: linear-gradient(135deg, #ff3873 0%, #e62864 100%);
+  color: white;
+}
+
+.schedule-card:hover .schedule-status {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.schedule-card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.schedule-info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.schedule-info-label {
+  font-weight: 600;
+  color: #666;
+  min-width: 60px;
+}
+
+.schedule-info-value {
+  color: #333;
+  flex: 1;
+}
+
+/* Loading */
+.loading-container {
+  text-align: center;
+  padding: 4rem 0;
+}
+
+.spinner {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #ff3873;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 1rem;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* No schedules */
+.no-schedules {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: #999;
+}
+
+.no-schedules-icon {
+  font-size: 5rem;
+  margin-bottom: 1rem;
+}
+
+.no-schedules h3 {
+  font-size: 1.8rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.no-schedules p {
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 2rem;
+}
+
+.schedule-add-btn-primary {
+  padding: 1rem 2.5rem;
+  background: linear-gradient(135deg, #ff3873 0%, #e62864 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 4px 15px rgba(255, 56, 115, 0.2);
+}
+
+.schedule-add-btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(255, 56, 115, 0.3);
+  background: linear-gradient(135deg, #e62864 0%, #dc235a 100%);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .schedule-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .schedule-login-prompt h2 {
+    font-size: 1.5rem;
+  }
+
+  .prompt-icon {
+    font-size: 3rem;
+  }
+}

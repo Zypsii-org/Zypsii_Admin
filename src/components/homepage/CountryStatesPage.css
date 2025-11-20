@@ -1,0 +1,305 @@
+.country-states-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .country-states-page {
+    padding: 1rem;
+  }
+}
+
+.country-states-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(15, 23, 42, 0.08), 0 0 0 1px rgba(15, 23, 42, 0.05);
+}
+
+.country-states-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 2px solid rgba(14, 165, 233, 0.2);
+  border-radius: 12px;
+  padding: 0.625rem 1.25rem;
+  background: linear-gradient(135deg, rgba(14, 165, 233, 0.05) 0%, rgba(14, 165, 233, 0.02) 100%);
+  color: #0ea5e9;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 8px rgba(14, 165, 233, 0.1);
+}
+
+.country-states-back-btn:hover {
+  background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
+  color: white;
+  border-color: #0ea5e9;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(14, 165, 233, 0.3);
+}
+
+.country-states-title-block {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  align-items: center;
+}
+
+.country-states-title-block h2 {
+  margin: 0;
+  font-size: 1.75rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #0f172a 0%, #475569 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.02em;
+}
+
+.country-states-search-wrapper {
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  border-radius: 16px;
+  padding: 0.875rem 1.25rem;
+  margin-bottom: 1.5rem;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.country-states-search-wrapper:focus-within {
+  border-color: rgba(14, 165, 233, 0.3);
+  background: #ffffff;
+  box-shadow: 0 4px 20px rgba(14, 165, 233, 0.1), inset 0 2px 8px rgba(0, 0, 0, 0.02);
+}
+
+.country-states-search-input {
+  width: 100%;
+  border: none;
+  background: transparent;
+  font-size: 1rem;
+  color: #0f172a;
+  outline: none;
+  font-weight: 500;
+}
+
+.country-states-search-input::placeholder {
+  color: #94a3b8;
+  font-weight: 400;
+}
+
+.country-states-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+  padding-bottom: 2rem;
+}
+
+/* Tablet and small desktop */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .country-states-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.25rem;
+  }
+}
+
+/* Medium desktop */
+@media (min-width: 1025px) and (max-width: 1440px) {
+  .country-states-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+}
+
+/* Large desktop */
+@media (min-width: 1441px) {
+  .country-states-grid {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .country-states-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+.country-state-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 1rem;
+  border-radius: 20px;
+  position: relative;
+}
+
+.country-state-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  padding: 2px;
+  background: linear-gradient(135deg, rgba(14, 165, 233, 0.3), rgba(99, 102, 241, 0.3));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.country-state-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  background: linear-gradient(135deg, rgba(14, 165, 233, 0.05) 0%, rgba(99, 102, 241, 0.02) 100%);
+}
+
+.country-state-card:hover::before {
+  opacity: 1;
+}
+
+.country-state-image-container {
+  width: 130px;
+  height: 130px;
+  border-radius: 65px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15), 0 0 0 4px rgba(255, 255, 255, 0.8);
+  background: linear-gradient(135deg, #f0f0f0 0%, #e0e0e0 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.country-state-card:hover .country-state-image-container {
+  box-shadow: 0 12px 32px rgba(14, 165, 233, 0.3), 0 0 0 4px rgba(255, 255, 255, 0.9);
+  transform: scale(1.05);
+}
+
+.country-state-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.country-state-card:hover .country-state-image {
+  transform: scale(1.1);
+}
+
+.country-state-image-placeholder {
+  background: linear-gradient(135deg, #e0e0e0 0%, #d0d0d0 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #64748b;
+}
+
+.country-state-image-placeholder span {
+  color: #64748b;
+}
+
+.country-state-info {
+  text-align: center;
+  width: 100%;
+}
+
+.country-state-name {
+  margin: 0 0 0.25rem 0;
+  font-size: 1.05rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #0f172a 0%, #475569 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.3;
+  word-wrap: break-word;
+  transition: all 0.3s ease;
+}
+
+.country-state-card:hover .country-state-name {
+  background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.country-state-location {
+  margin: 0;
+  font-size: 0.875rem;
+  color: #64748b;
+  line-height: 1.4;
+  font-weight: 500;
+}
+
+.country-states-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1rem;
+  gap: 1rem;
+}
+
+.country-states-loading .spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(14, 165, 233, 0.2);
+  border-top-color: #0ea5e9;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.country-states-empty {
+  text-align: center;
+  padding: 2.5rem 1rem;
+  color: #475569;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.country-states-empty p {
+  margin: 0;
+  color: #64748b;
+}
+
+.country-states-empty button {
+  border: none;
+  border-radius: 8px;
+  padding: 0.55rem 1.2rem;
+  background: #0ea5e9;
+  color: #fff;
+  font-weight: 500;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.country-states-empty button:hover {
+  opacity: 0.85;
+}
+

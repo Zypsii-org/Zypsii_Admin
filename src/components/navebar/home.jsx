@@ -6,9 +6,9 @@ import vedio from "../../assert/travel.mp4"
 import { useState, useRef, useEffect } from "react";
 import { FaVolumeMute, FaVolumeUp } from "react-icons/fa";
 import logo from "../../assert/logo.png";
-import { DiAppstore } from "react-icons/di";
 import { IoLogoGooglePlaystore } from "react-icons/io5";
 import Typed from 'typed.js';
+import GoogleLoginButton from "../auth/GoogleLoginButton";
 
 const HeroSection = () => {
   const [isMuted, setIsMuted] = useState(true);
@@ -18,11 +18,10 @@ const HeroSection = () => {
   useEffect(() => {
     const typed = new Typed(el.current, {
       strings: [
-        'Launching Soon...',
-        'A Powerful App to connect <span style="color: #b300b3;">Traveler\'s</span>',
-        'Inspired by <span style="color: #b300b3;"> into the world</span>',
-        'Plan your next <span style="color: #b300b3;">adventure</span>',
-        'Explore the <span style="color: #b300b3;">world</span>'
+        'A Powerful App to connect <span style="color: #ff3873;">Traveler\'s</span>',
+        'Inspired by <span style="color: #ff3873;"> into the world</span>',
+        'Plan your next <span style="color: #ff3873;">adventure</span>',
+        'Explore the <span style="color: #ff3873;">world</span>'
       ],
       typeSpeed: 50,
       backSpeed: 50,
@@ -60,27 +59,30 @@ const HeroSection = () => {
         <div className="container">
           <a className="navbar-brand d-flex align-items-center" href="#">
             <img src={logo} alt="" width="30" height="40" className="d-inline-block align-text-top" />
-            <span className="logo-text ms-2 fw-bold "style={{color:"#b300b3"}}>Zypsii</span>
+            <span className="logo-text ms-2 fw-bold "style={{color:"#ff3873"}}>Zypsii</span>
           </a>
           <button
             className="navbar-toggler"
-            style={{color:"#b300b3"}}
+            style={{color:"#ff3873"}}
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarNav"
             aria-controls="navbarNav"
             aria-expanded="false"
             aria-label="Toggle navigation">
-            <span className="navbar-toggler-icon" style={{backgroundColor:"#b300b3"}}></span>
+            <span className="navbar-toggler-icon" style={{backgroundColor:"#ff3873"}}></span>
           </button>
           <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul className="navbar-nav" >
-              <li className="nav-item"><a className="nav-link fw-bold" href="#nearest" style={{color:"#b300b3"}}>Nearest</a></li>
-              <li className="nav-item"><a className="nav-link fw-bold" href="#track" style={{color:"#b300b3"}}  >Track</a></li>
-              <li className="nav-item"><a className="nav-link fw-bold" href="#explore" style={{color:"#b300b3"}}>Explore</a></li>
-              <li className="nav-item"><a className="nav-link fw-bold" href="#chat" style={{color:"#b300b3"}}>Chat</a></li>
-              <li className="nav-item"><a className="nav-link fw-bold" href="#about" style={{color:"#b300b3"}}>About</a></li>
-              <li className="nav-item"><a className="nav-link fw-bold" href="#contact" style={{color:"#b300b3"}}>Contact</a></li>
+              <li className="nav-item"><a className="nav-link fw-bold" href="#nearest" style={{color:"#ff3873"}}>Nearest</a></li>
+              <li className="nav-item"><a className="nav-link fw-bold" href="#track" style={{color:"#ff3873"}}  >Track</a></li>
+              <li className="nav-item"><a className="nav-link fw-bold" href="#explore" style={{color:"#ff3873"}}>Explore</a></li>
+              <li className="nav-item"><a className="nav-link fw-bold" href="#chat" style={{color:"#ff3873"}}>Chat</a></li>
+              <li className="nav-item"><a className="nav-link fw-bold" href="#about" style={{color:"#ff3873"}}>About</a></li>
+              <li className="nav-item"><a className="nav-link fw-bold" href="#contact" style={{color:"#ff3873"}}>Contact</a></li>
+              <li className="nav-item d-flex align-items-center ms-2" style={{position: 'relative', zIndex: '999999'}}>
+                <GoogleLoginButton variant="primary" />
+              </li>
             </ul>
           </div>
         </div>
@@ -102,12 +104,18 @@ const HeroSection = () => {
           <h1 className="fw-bold">
             <span ref={el}></span>
           </h1>
-          <p ><span className="logo-text ms-2 fw-bold "style={{color:"#b300b3"}}>Plan, Connect & Share</span> Your Adventures – All in One App!</p>
+          <p ><span className="logo-text ms-2 fw-bold "style={{color:"#ff3873"}}>Plan, Connect & Share</span> Your Adventures – All in One App!</p>
           
           {/* Buttons */}
           <div className="d-flex justify-content-center gap-3">
-            <button className="btn btn-primary"><DiAppstore size={30}/>App Store</button>
-            <button className="btn btn-dark "><IoLogoGooglePlaystore size={30} />Google Play</button>
+            <a 
+              href="https://play.google.com/store/apps/details?id=com.SmartKal.founder" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="btn btn-dark"
+            >
+              <IoLogoGooglePlaystore size={30} />Google Play
+            </a>
           </div>
 
           {/* Explore & Plan Section */}

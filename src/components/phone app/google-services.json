@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1008509074936",
+    "project_id": "zypsii-5ca75",
+    "storage_bucket": "zypsii-5ca75.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1008509074936:android:3882dd147dcbf49df7aa0d",
+        "android_client_info": {
+          "package_name": "com.SmartKal.founder"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1008509074936-43do8ngkpjvi1m50sq9k0ag7mm5jg972.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.SmartKal.founder",
+            "certificate_hash": "46345bc6f30394c69c638f39c64ff321eb95ed3d"
+          }
+        },
+        {
+          "client_id": "1008509074936-bi382n2gcu9bbqt6kjf8chrnavt2u5ev.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.SmartKal.founder",
+            "certificate_hash": "2d9b811504be68538692844ef441e8a55f8f8b3b"
+          }
+        },
+        {
+          "client_id": "1008509074936-rg8ffmhn16hivb6l7d4joqh24vqa6gnb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC9CJb4DnsMk85QJp8CfrmQL5LC9i8HOqo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1008509074936-rg8ffmhn16hivb6l7d4joqh24vqa6gnb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

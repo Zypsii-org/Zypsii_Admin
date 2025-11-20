@@ -45,7 +45,7 @@ const FeaturesSection = () => {
 
   return (
     <section ref={sectionRef} className="features-section text-center py-5" id="Features">
-      <h6 className="text fw-bold" style={{ color: "#b300b3" }}>FEATURES</h6>
+      <h6 className="text fw-bold" style={{ color: "#ff3873" }}>FEATURES</h6>
 
       <h2 className="fw-bold">Discover the amazing features that make your trip unforgettable</h2>
       {/* <p className="text-muted">

@@ -7,6 +7,9 @@ export { Login, ProtectedRoute } from './auth';
 // Dashboard Components
 export { Dashboard } from './dashboard';
 
+// Home Components
+export { InstagramHome } from './home';
+
 // Guide Components
 export { Guides, GuideForm } from './guides';
 

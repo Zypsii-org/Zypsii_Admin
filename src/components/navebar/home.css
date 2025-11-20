@@ -5,6 +5,14 @@
   overflow: hidden;
 }
 
+.navbar-nav {
+  overflow: visible !important;
+}
+
+.navbar {
+  overflow: visible !important;
+}
+
 .hero-video {
   position: absolute;
   top: 0;
@@ -62,6 +70,10 @@
 }
 
 /* Navbar Customization */
+.navbar {
+  z-index: 1050 !important;
+}
+
 .navbar-brand {
   font-size: 1.5rem;
 }

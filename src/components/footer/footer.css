@@ -93,7 +93,7 @@
 }
 
 .social-icons a:hover {
-  background-color: #b300b3;
+  background-color: #ff3873;
   transform: translateY(-3px);
 }
 
@@ -130,7 +130,7 @@
 }
 
 .footer-link:hover {
-  color: #b300b3 !important;
+  color: #ff3873 !important;
   background-color: rgba(255, 255, 255, 0.1);
 }
 

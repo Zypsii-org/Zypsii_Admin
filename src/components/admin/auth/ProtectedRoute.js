@@ -1,10 +1,16 @@
 import React from 'react';
-import { Navigate } from 'react-router-dom';
+import { Navigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../../../context/AuthContext';
 import './ProtectedRoute.css';
 
 const ProtectedRoute = ({ children }) => {
-  const { isAuthenticated, loading } = useAuth();
+  const location = useLocation();
+  const { isAuthenticated, loading, user } = useAuth();
+
+  const hasAdminAccess =
+    user?.role?.toLowerCase() === 'admin' ||
+    user?.isAdmin === true ||
+    user?.isAdmin === 'true';
 
   if (loading) {
     return (
@@ -15,8 +21,17 @@ const ProtectedRoute = ({ children }) => {
     );
   }
 
-  if (!isAuthenticated) {
-    return <Navigate to="/admin/login" replace />;
+  if (!isAuthenticated || !hasAdminAccess) {
+    return (
+      <Navigate
+        to="/admin/login"
+        replace
+        state={{
+          from: location.pathname,
+          error: 'Admin access required. Please sign in with an admin account.',
+        }}
+      />
+    );
   }
 
   return children;

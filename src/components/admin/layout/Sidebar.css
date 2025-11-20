@@ -10,6 +10,7 @@
   z-index: 1000;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 
 .admin-sidebar.collapsed {
@@ -88,6 +89,7 @@
 .nav-label.hidden {
   opacity: 0;
   pointer-events: none;
+  display: none;
 }
 
 .sidebar-footer {
@@ -111,6 +113,34 @@
 .logout-button:hover {
   background-color: rgba(228, 6, 240, 0.2);
   color: #e406f0;
+}
+
+/* Collapsed State Tweaks */
+.admin-sidebar.collapsed .sidebar-header {
+  justify-content: center;
+  padding: 24px 0 16px;
+}
+
+.admin-sidebar.collapsed .sidebar-toggle {
+  margin: 0;
+}
+
+.admin-sidebar.collapsed .nav-item {
+  justify-content: center;
+  padding: 16px 0;
+}
+
+.admin-sidebar.collapsed .nav-icon {
+  margin-right: 0;
+}
+
+.admin-sidebar.collapsed .sidebar-footer {
+  padding: 16px 0 24px;
+}
+
+.admin-sidebar.collapsed .logout-button {
+  justify-content: center;
+  padding: 16px 0;
 }
 
 @media (max-width: 768px) {

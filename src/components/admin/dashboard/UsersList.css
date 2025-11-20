@@ -89,6 +89,19 @@
   flex-shrink: 0;
 }
 
+.user-avatar-fallback {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 3px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f8fafc;
+  color: #94a3b8;
+  transition: border-color 0.2s ease;
+}
+
 .user-avatar img {
   width: 60px;
   height: 60px;
@@ -103,7 +116,7 @@
 }
 
 
-.user-card:hover .avatar-fallback {
+.user-card:hover .user-avatar-fallback {
   border-color: #e406f0;
 }
 

@@ -1,0 +1,137 @@
+{
+  "expo": {
+    "name": "Zypsii",
+    "scheme": "qauds",
+    "version": "1.0.15",
+    "description": "Zypsii Travel is a modern travel companion app built in React Native using Expo for iOS and Android. It's designed with beautiful aesthetics and best coding practices in mind, helping travelers plan, book, and manage their journeys seamlessly. The app features trip planning, booking management, and local experiences discovery.",
+    "slug": "qauds-ecs0kz26yt5iup31rnqp",
+    "owner": "jenish1111",
+    "privacy": "public",
+    "androidStatusBar": {
+      "backgroundColor": "#000000"
+    },
+    "platforms": [
+      "ios",
+      "android"
+    ],
+    "orientation": "portrait",
+    "icon": "./assets/logo.png",
+    "splash": {
+      "resizeMode": "cover",
+      "backgroundColor": "#ffffff"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "userInterfaceStyle": "automatic",
+    "ios": {
+      "supportsTablet": true,
+      "userInterfaceStyle": "automatic",
+      "bundleIdentifier": "com.SmartKal.founder",
+      "config": {
+        "googleMapsApiKey": "###### Key #######"
+      },
+      "usesAppleSignIn": true,
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "Allow $(PRODUCT_NAME) to use location to determine the delivery address for your orders.",
+        "UIBackgroundModes": [
+          "remote-notification"
+        ],
+        "NSUserTrackingUsageDescription": "Allow this app to collect app-related data that can be used for tracking you or your device.",
+        "CFBundleURLTypes": [
+          {
+            "CFBundleURLSchemes": [
+              "com.googleusercontent.apps.967541328677-nf8h4ou7rhmq9fahs87p057rggo95eah"
+            ]
+          }
+        ]
+      }
+    },
+    "notification": {
+      "iosDisplayInForeground": true,
+      "color": "#F16122",
+      "icon": "./assets/not-icon.png",
+      "androidMode": "default",
+      "androidCollapsedTitle": "Zypsii"
+    },
+    "android": {
+      "versionCode": 32,
+      "package": "com.SmartKal.founder",
+      "googleServicesFile": "./google-services.json",
+      "userInterfaceStyle": "automatic",
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyCcm7_Wd7uvmC9YnYLu2JHGWPt6z1MaL1E"
+        }
+      },
+      "permissions": [
+        "android.permission.ACCESS_COARSE_LOCATION",
+        "android.permission.RECORD_AUDIO",
+        "android.permission.FOREGROUND_SERVICE",
+        "com.google.android.gms.permission.AD_ID",
+        "android.permission.ACCESS_FINE_LOCATION"
+      ]
+    },
+    "plugins": [
+      "@react-native-google-signin/google-signin",
+      [
+        "expo-tracking-transparency",
+        {
+          "userTrackingPermission": "Allow this app to collect app-related data that can be used for tracking you or your device."
+        }
+      ],
+      [
+        "expo-build-properties",
+        {
+          "android": {
+            "compileSdkVersion": 34,
+            "targetSdkVersion": 35,
+            "minSdkVersion": 23,
+            "kotlinVersion": "1.9.10",
+            "gradlePluginVersion": "8.0.2",
+            "gradleVersion": "8.3",
+            "suppressUnsupportedCompileSdk": 34,
+            "enableProguardInReleaseBuilds": false,
+            "enableShrinkResourcesInReleaseBuilds": false,
+            "enableR8": false,
+            "gradleProperties": {
+              "org.gradle.internal.http.connectionTimeout": "180000",
+              "org.gradle.internal.http.socketTimeout": "180000",
+              "org.gradle.daemon": "true",
+              "org.gradle.parallel": "true",
+              "org.gradle.configureondemand": "true",
+              "android.useAndroidX": "true",
+              "android.enableJetifier": "true",
+              "android.enableR8.fullMode": "false",
+              "android.suppressUnsupportedCompileSdk": "34"
+            },
+            "enableMinifyInReleaseBuilds": false
+          }
+        }
+      ],
+      [
+        "expo-updates",
+        {
+          "username": "zeenathshameena"
+        }
+      ],
+      [
+        "expo-location",
+        {
+          "locationAlwaysAndWhenInUsePermission": "Allow Zypsii to use your location."
+        }
+      ]
+    ],
+    "runtimeVersion": {
+      "policy": "sdkVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/3f402d8f-7425-4fec-940b-963a4f4c8bd6"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "cdddf62c-760a-4e84-bbc2-9a41ef4186a8"
+      }
+    }
+  }
+}

@@ -1,0 +1,139 @@
+.location-picker-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(9, 10, 15, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 11000;
+  padding: 20px;
+}
+
+.location-picker-modal {
+  background: #fff;
+  border-radius: 18px;
+  width: 100%;
+  max-width: 820px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 25px 60px rgba(15, 23, 42, 0.3);
+}
+
+.location-picker-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 1.5rem 1.75rem 1rem;
+  border-bottom: 1px solid #f0f2f5;
+}
+
+.location-picker-header h3 {
+  margin: 0;
+  font-size: 1.4rem;
+  color: #141820;
+}
+
+.location-picker-header p {
+  margin: 0.45rem 0 0;
+  color: #5b6474;
+  font-size: 0.95rem;
+}
+
+.location-picker-close {
+  border: none;
+  background: transparent;
+  font-size: 2rem;
+  color: #98a0af;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0;
+}
+
+.location-picker-map {
+  height: 420px;
+  width: 100%;
+}
+
+.location-picker-map-inner {
+  height: 100%;
+  width: 100%;
+}
+
+.location-picker-coords {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  padding: 1.25rem 1.75rem 0;
+}
+
+.location-picker-coords span {
+  display: block;
+  font-size: 0.85rem;
+  color: #868c98;
+  letter-spacing: 0.02em;
+}
+
+.location-picker-coords strong {
+  display: block;
+  font-size: 1.15rem;
+  margin-top: 0.2rem;
+  color: #111827;
+}
+
+.location-picker-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  padding: 1.25rem 1.75rem 1.75rem;
+}
+
+.location-picker-actions button {
+  border-radius: 10px;
+  padding: 0.85rem 1.8rem;
+  border: none;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.location-picker-cancel {
+  background: #f3f4f6;
+  color: #374151;
+}
+
+.location-picker-cancel:hover {
+  transform: translateY(-1px);
+}
+
+.location-picker-confirm {
+  background: linear-gradient(135deg, #ff3873 0%, #ef2662 100%);
+  color: #fff;
+  box-shadow: 0 10px 25px rgba(239, 38, 98, 0.3);
+}
+
+.location-picker-confirm:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.location-picker-confirm:not(:disabled):hover {
+  transform: translateY(-2px);
+}
+
+@media (max-width: 640px) {
+  .location-picker-modal {
+    max-width: 95%;
+  }
+
+  .location-picker-coords {
+    grid-template-columns: 1fr;
+  }
+
+  .location-picker-map {
+    height: 320px;
+  }
+}
+

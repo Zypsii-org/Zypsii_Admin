@@ -95,7 +95,7 @@ body.countdown-active {
 }
 
 .countdown-content::-webkit-scrollbar-thumb {
-  background: #b300b3;
+  background: #ff3873;
   border-radius: 3px;
 }
 
@@ -113,7 +113,7 @@ body.countdown-active {
 
 .launch-text {
   font-size: 1.5rem;
-  color: #b300b3;
+  color: #ff3873;
   margin-bottom: 2rem;
   font-weight: bold;
   animation: fadeInUp 1s ease;
@@ -148,7 +148,7 @@ body.countdown-active {
 .time-block .number {
   font-size: 2.5rem;
   font-weight: bold;
-  color: #b300b3;
+  color: #ff3873;
   display: block;
   margin-bottom: 5px;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
@@ -195,7 +195,7 @@ body.countdown-active {
 
 .feature-item i {
   font-size: 2rem;
-  color: #b300b3;
+  color: #ff3873;
   margin-bottom: 1rem;
 }
 
@@ -241,7 +241,7 @@ body.countdown-active {
   padding: 12px 30px;
   border: none;
   border-radius: 5px;
-  background: #b300b3;
+  background: #ff3873;
   color: #fff;
   font-size: 1rem;
   cursor: pointer;
@@ -382,7 +382,7 @@ body.countdown-active {
 
 .popup-content h2 {
   font-size: 3rem;
-  color: #b300b3;
+  color: #ff3873;
   margin-bottom: 1rem;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
@@ -396,7 +396,7 @@ body.countdown-active {
 .explore-button {
   padding: 15px 40px;
   font-size: 1.2rem;
-  background: #b300b3;
+  background: #ff3873;
   color: white;
   border: none;
   border-radius: 30px;
@@ -408,7 +408,7 @@ body.countdown-active {
 .explore-button:hover {
   background: #8a008a;
   transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(179, 0, 179, 0.3);
+  box-shadow: 0 5px 15px rgba(255, 56, 115, 0.3);
 }
 
 .launch-animation {

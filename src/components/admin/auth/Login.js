@@ -1,56 +1,68 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../../../context/AuthContext';
 import './Login.css';
 
 const Login = () => {
-  const [credentials, setCredentials] = useState({
-    email: '',
-    password: ''
-  });
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState('');
-  
-  const { login } = useAuth();
   const navigate = useNavigate();
+  const location = useLocation();
+  const { login, isAuthenticated, loading } = useAuth();
 
-  const handleChange = (e) => {
-    setCredentials({
-      ...credentials,
-      [e.target.name]: e.target.value
-    });
+  const [formData, setFormData] = useState({
+    email: '',
+    password: '',
+  });
+
+  const [error, setError] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  useEffect(() => {
+    if (!loading && isAuthenticated) {
+      navigate('/admin/dashboard', { replace: true });
+    }
+  }, [isAuthenticated, loading, navigate]);
+
+  useEffect(() => {
+    if (location.state?.error) {
+      setError(location.state.error);
+    }
+  }, [location.state]);
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    
-    console.log('📝 FORM SUBMITTED - PREVENTING DEFAULT');
-    console.log('📤 Form credentials:', credentials);
-    console.log('🔒 Event prevented:', e.defaultPrevented);
-    
-    setLoading(true);
+  const handleSubmit = async (event) => {
+    event.preventDefault();
     setError('');
 
-    try {
-
-      const result = await login(credentials);
-      
-      if (result.success) {
-        navigate('/admin/dashboard');
-      } else {
-        console.log('❌ Login failed:', result.error);
-        setError(result.error || 'Login failed');
-      }
-    } catch (err) {
-      console.error('💥 Login error:', err);
-      setError(err.message || 'An unexpected error occurred');
-    } finally {
-      setLoading(false);
+    if (!formData.email.trim() || !formData.password.trim()) {
+      setError('Email and password are required.');
+      return;
     }
-    
-    // Prevent any further form submission
-    return false;
+
+    try {
+      setIsSubmitting(true);
+      const result = await login({
+        email: formData.email.trim(),
+        password: formData.password,
+      });
+
+      if (result?.success) {
+        navigate('/admin/dashboard', { replace: true });
+      } else {
+        setError(result?.error || 'Login failed. Please try again.');
+      }
+    } catch (submitError) {
+      console.error('Admin login failed:', submitError);
+      setError('An unexpected error occurred. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -58,58 +70,55 @@ const Login = () => {
       <div className="admin-login-card">
         <div className="admin-login-header">
           <h1>Admin Login</h1>
-          <p>Welcome to Zypsii Admin Panel</p>
+          <p>Sign in to continue to the Zypsii admin panel.</p>
         </div>
-        
-        <form 
-          onSubmit={handleSubmit} 
-          className="admin-login-form" 
-          noValidate
-          action="javascript:void(0)"
-          method="POST"
-        >
-          {error && <div className="error-message">{error}</div>}
-          
+
+        {error && <div className="error-message">{error}</div>}
+
+        <form className="admin-login-form" onSubmit={handleSubmit} noValidate>
           <div className="form-group">
-            <label htmlFor="email">Email</label>
+            <label htmlFor="email">Email address</label>
             <input
-              type="email"
               id="email"
               name="email"
-              value={credentials.email}
+              type="email"
+              placeholder="name@example.com"
+              value={formData.email}
               onChange={handleChange}
-              required
-              placeholder="admin@zypsii.com"
               autoComplete="email"
+              disabled={isSubmitting}
+              required
             />
           </div>
-          
+
           <div className="form-group">
             <label htmlFor="password">Password</label>
             <input
-              type="password"
               id="password"
               name="password"
-              value={credentials.password}
-              onChange={handleChange}
-              required
+              type="password"
               placeholder="Enter your password"
+              value={formData.password}
+              onChange={handleChange}
               autoComplete="current-password"
-              minLength="6"
+              disabled={isSubmitting}
+              required
             />
           </div>
-          
-          <button 
-            type="submit" 
+
+          <button
+            type="submit"
             className="login-button"
-            disabled={loading}
+            disabled={isSubmitting}
           >
-            {loading ? 'Logging in...' : 'Login'}
+            {isSubmitting ? 'Signing in...' : 'Sign in'}
           </button>
         </form>
-        
+
         <div className="admin-login-footer">
-          <a href="/" className="back-to-site">← Back to Website</a>
+          <Link className="back-to-site" to="/">
+            ← Back to website
+          </Link>
         </div>
       </div>
     </div>

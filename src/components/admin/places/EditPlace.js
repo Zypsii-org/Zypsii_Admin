@@ -4,6 +4,7 @@ import { useAuth } from '../../../context/AuthContext';
 import api from '../../../services/api';
 import axios from 'axios';
 import './EditPlace.css';
+import { COUNTRIES } from '../../../constants/countries';
 
 const EditPlace = ({ place, onSave, onCancel, onDelete }) => {
   const { user, isAuthenticated, logout } = useAuth();
@@ -578,14 +579,28 @@ const EditPlace = ({ place, onSave, onCancel, onDelete }) => {
             </div>
 
             <div className="form-field">
-              <label>Country</label>
-              <input
-                type="text"
+              <label>Country *</label>
+              <select
                 name="location.country"
                 value={formData.location.country}
                 onChange={handleChange}
-                placeholder="Enter country name"
-              />
+                required
+              >
+                <option value="" disabled>
+                  Select country
+                </option>
+                {formData.location.country &&
+                  !COUNTRIES.includes(formData.location.country) && (
+                    <option value={formData.location.country}>
+                      {formData.location.country}
+                    </option>
+                  )}
+                {COUNTRIES.map((country) => (
+                  <option key={country} value={country}>
+                    {country}
+                  </option>
+                ))}
+              </select>
             </div>
           </div>
 
